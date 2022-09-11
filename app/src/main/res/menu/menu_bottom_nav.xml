@@ -3,17 +3,14 @@
     <group android:id="@+id/menu_bottom_nav">
         <item
             android:id="@+id/topNewsFragment"
-            android:enabled="true"
             android:icon="@drawable/ic_bottom_top_news"
             android:title="@string/top_news_label" />
         <item
             android:id="@+id/categoryFragment"
-            android:enabled="true"
             android:icon="@drawable/ic_bottom_category"
             android:title="@string/category_label" />
         <item
             android:id="@+id/savedFragment"
-            android:enabled="true"
             android:icon="@drawable/ic_bottom_saved"
             android:title="@string/saved_label" />
     </group>

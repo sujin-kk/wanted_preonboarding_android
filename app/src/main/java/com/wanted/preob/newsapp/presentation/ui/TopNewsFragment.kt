@@ -6,12 +6,13 @@ import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentTopNewsBinding
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
+import timber.log.Timber
 
 class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_top_news) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Timber.e(TAG)
         initListener()
     }
 
@@ -21,4 +22,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
         binding.topNewsHeader.headerTitleTv.text = getString(R.string.app_name)
     }
 
+    companion object {
+        const val TAG = "TopNewsFragment"
+    }
 }

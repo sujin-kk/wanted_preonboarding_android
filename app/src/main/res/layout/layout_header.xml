@@ -10,35 +10,39 @@
             name="headerType"
             type="com.wanted.preob.newsapp.domain.model.enums.HeaderType" />
     </data>
-        <com.google.android.material.appbar.AppBarLayout
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/purple_500">
+            android:layout_height="wrap_content">
+
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/main_header_tb"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:titleTextColor="@color/white"
-                app:contentInsetStart="@dimen/bg_margin_default"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/purple_500"
                 app:contentInsetEnd="@dimen/bg_margin_default"
-                app:layout_constraintStart_toStartOf="parent"
+                app:contentInsetStart="@dimen/bg_margin_default"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/white">
 
                 <TextView
                     android:id="@+id/header_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:visibility="@{headerType == HeaderType.BASE ? View.VISIBLE : View.GONE}"/>
+                    android:visibility="@{headerType == HeaderType.BASE ? View.VISIBLE : View.GONE}" />
 
                 <LinearLayout
                     android:id="@+id/header_back_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_gravity="left"
-                    android:visibility="@{headerType == HeaderType.BACK ? View.GONE : View.VISIBLE}">
+                    android:orientation="horizontal"
+                    android:visibility="@{headerType == HeaderType.BACK ? View.VISIBLE : View.GONE}">
+
                     <ImageView
                         android:id="@+id/header_back_iv"
                         android:layout_width="wrap_content"
@@ -47,13 +51,14 @@
 
                     <TextView
                         android:id="@+id/header_back_title_tv"
-                        android:layout_marginStart="@dimen/bg_margin_default"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/bg_margin_default" />
 
                 </LinearLayout>
 
             </com.google.android.material.appbar.MaterialToolbar>
 
-        </com.google.android.material.appbar.AppBarLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

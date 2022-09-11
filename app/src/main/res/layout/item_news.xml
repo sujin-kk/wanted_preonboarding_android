@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.wanted.preob.newsapp.domain.model.News" />
+        <variable
+            name="news"
+            type="com.wanted.preob.newsapp.domain.model.News" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_news_item"
+        android:paddingBottom="16dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/item_news_img_cv"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            app:cardCornerRadius="@dimen/image_radius_default"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:id="@+id/item_news_iv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@{news.imgUrl}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/item_news_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{news.title}"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/item_news_img_cv"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/item_news_author_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{news.author}"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/item_news_title_tv"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/item_news_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{news.time}"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="@id/item_news_author_tv"
+            app:layout_constraintBottom_toBottomOf="@id/item_news_author_tv"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -12,4 +12,6 @@
     <string name="category_header_title">Category - %s</string>
     <string name="category_saved_title">Saved News</string>
 
+    <string name="api_key">e21097ee5d1d4cc0ba09d9e64d739021</string>
+
 </resources>

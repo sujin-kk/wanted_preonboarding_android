@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">NewsApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- bottom label -->
+    <string name="top_news_label">Top News</string>
+    <string name="category_label">Categories</string>
+    <string name="saved_label">Saved</string>
+
+    <!-- header -->
+    <string name="category_header_title">Category - %s</string>
+    <string name="category_saved_title">Saved News</string>
+
 </resources>

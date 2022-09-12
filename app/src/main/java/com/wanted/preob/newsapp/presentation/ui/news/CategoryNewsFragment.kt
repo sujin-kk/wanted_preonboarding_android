@@ -21,10 +21,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Timber.e(TAG)
-
         mainViewModel.getNewsList(args.category)
-
         initAdapter()
         initListener()
         bindingViewModel()

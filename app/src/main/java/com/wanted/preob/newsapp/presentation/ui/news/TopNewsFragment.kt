@@ -20,7 +20,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Timber.e(TAG)
+        mainViewModel.getNewsList(null)
         initAdapter()
         initListener()
         bindingViewModel()
@@ -37,7 +37,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
     }
 
     private fun bindingViewModel() {
-        lifecycleScope.launchWhenCreated {
+        lifecycleScope.launchWhenStarted {
             mainViewModel.topNewsList.collect {
                 Timber.tag(TAG).e(it.toString())
                 topNewsListAdapter.updateNewsList(it)

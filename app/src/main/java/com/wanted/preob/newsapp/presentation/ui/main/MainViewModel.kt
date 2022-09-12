@@ -16,10 +16,6 @@ class MainViewModel @Inject constructor(
     private val newsRepository: NewsRepository
 ): BaseViewModel() {
 
-    init {
-        getNewsList(null)
-    }
-
     private val _topNewsList: MutableStateFlow<MutableList<News>> =
         MutableStateFlow(mutableListOf())
     val topNewsList: StateFlow<MutableList<News>>

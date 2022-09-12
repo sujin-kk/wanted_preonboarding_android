@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.wanted.preob.newsapp.domain.model.News" />
+        <variable
+            name="news"
+            type="com.wanted.preob.newsapp.domain.model.News" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.detail.DetailNewsFragment">
+
+        <include
+            android:id="@+id/detail_news_header"
+            layout="@layout/layout_header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

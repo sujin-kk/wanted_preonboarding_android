@@ -2,6 +2,7 @@ package com.wanted.preob.newsapp.presentation.ui.category
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentCategoryBinding
 import com.wanted.preob.newsapp.domain.model.enums.Category
@@ -44,6 +45,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
 
     private fun navigateToCategoryNews(category: Category) {
         Timber.tag(TAG).e("$category 뉴스 리스트로 이동")
+        findNavController().navigate(
+            CategoryFragmentDirections.actionCategoryToNews(category.title)
+        )
+
     }
 
     companion object {

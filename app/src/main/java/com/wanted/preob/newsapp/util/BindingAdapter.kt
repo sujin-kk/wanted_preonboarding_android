@@ -15,7 +15,8 @@ fun ImageView.bindImage(imgUrl: String?) {
             .load(imgUrl)
             .error(R.drawable.ic_none_img)
             .placeholder(R.drawable.ic_loading)
-            .centerCrop().into(this)
+            .centerCrop()
+            .into(this)
     }
 }
 
@@ -37,8 +38,15 @@ fun TextView.bindTimeText(publishedAt: String) {
     text = when {
         diffDay > 0 -> "$diffDay days ago"
         diffHour > 0 -> "$diffHour hours ago"
-        diffMin > 0 -> "$diffMin minites ago"
+        diffMin > 0 -> "$diffMin minutes ago"
         else -> "$diffSec seconds ago"
     }
-
 }
+
+@BindingAdapter("bindCategoryImage")
+fun ImageView.bindCategoryImage(resId: Int) {
+    Glide.with(this)
+        .load(resId)
+        .into(this)
+}
+

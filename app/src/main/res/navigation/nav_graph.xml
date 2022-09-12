@@ -7,9 +7,21 @@
 
     <fragment
         android:id="@+id/topNewsFragment"
-        android:name="com.wanted.preob.newsapp.presentation.ui.topNews.TopNewsFragment"
+        android:name="com.wanted.preob.newsapp.presentation.ui.news.TopNewsFragment"
         android:label="TopNewsFragment"
         tools:layout="@layout/fragment_top_news">
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryNewsFragment"
+        android:name="com.wanted.preob.newsapp.presentation.ui.news.CategoryNewsFragment"
+        android:label="CategoryNewsFragment"
+        tools:layout="@layout/fragment_category_news">
+
+        <argument
+            android:name="category"
+            android:defaultValue=""
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -17,6 +29,14 @@
         android:name="com.wanted.preob.newsapp.presentation.ui.category.CategoryFragment"
         android:label="CategoryFragment"
         tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_category_to_news"
+            app:destination="@id/categoryNewsFragment">
+            <argument
+                android:name="category"
+                android:defaultValue=""
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment

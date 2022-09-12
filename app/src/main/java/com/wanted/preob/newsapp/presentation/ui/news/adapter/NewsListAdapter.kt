@@ -1,4 +1,4 @@
-package com.wanted.preob.newsapp.presentation.ui.topNews
+package com.wanted.preob.newsapp.presentation.ui.news.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater

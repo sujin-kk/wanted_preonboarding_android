@@ -10,20 +10,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.news.TopNewsFragment">
+        tools:context=".presentation.ui.news.CategoryNewsFragment">
 
         <include
-            android:id="@+id/top_news_header"
+            android:id="@+id/category_news_header"
             layout="@layout/layout_header" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/top_news_rv"
+            android:id="@+id/category_news_rv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginTop="@dimen/bg_margin_default"
             android:layout_marginHorizontal="@dimen/bg_margin_default"
-            app:layout_constraintTop_toBottomOf="@id/top_news_header"
+            app:layout_constraintTop_toBottomOf="@id/category_news_header"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/item_news"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

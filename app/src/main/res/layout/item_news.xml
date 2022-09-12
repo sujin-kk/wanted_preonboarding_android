@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_news_item"
-        android:paddingBottom="16dp">
+        android:paddingBottom="16dp"
+        android:layout_marginBottom="17dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/item_news_img_cv"
@@ -39,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{news.title}"
+            style="@style/T2"
             android:layout_marginTop="30dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/item_news_img_cv"
@@ -49,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{news.author}"
+            style="@style/Sub1"
             android:layout_marginTop="16dp"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/item_news_title_tv"
@@ -59,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{news.time}"
+            style="@style/Sub1"
             android:layout_marginEnd="10dp"
             app:layout_constraintTop_toTopOf="@id/item_news_author_tv"
             app:layout_constraintBottom_toBottomOf="@id/item_news_author_tv"

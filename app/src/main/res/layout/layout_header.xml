@@ -11,9 +11,9 @@
             type="com.wanted.preob.newsapp.domain.model.enums.HeaderType" />
     </data>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="?attr/actionBarSize">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/main_header_tb"
@@ -32,6 +32,7 @@
                     android:id="@+id/header_title_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    style="@style/H1"
                     android:layout_gravity="left"
                     android:visibility="@{headerType == HeaderType.BASE ? View.VISIBLE : View.GONE}" />
 
@@ -40,6 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
+                    android:gravity="center"
                     android:orientation="horizontal"
                     android:visibility="@{headerType == HeaderType.BACK ? View.VISIBLE : View.GONE}">
 
@@ -53,12 +55,13 @@
                         android:id="@+id/header_back_title_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        style="@style/H1"
                         android:layout_marginStart="@dimen/bg_margin_default" />
 
                 </LinearLayout>
 
             </com.google.android.material.appbar.MaterialToolbar>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
 </layout>

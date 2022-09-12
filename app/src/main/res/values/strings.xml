@@ -10,7 +10,20 @@
 
     <!-- header -->
     <string name="category_header_title">Category - %s</string>
-    <string name="category_saved_title">Saved News</string>
+    <string name="select_category_header_title">Category</string>
+    <string name="saved_header_title">Saved News</string>
+
+    <!-- category -->
+    <string name="category_title_text">Choose a category to\nstart reading</string>
+    <string name="category_business">business</string>
+    <string name="category_entertainment">entertainment</string>
+    <string name="category_health">health</string>
+    <string name="category_general">general</string>
+    <string name="category_science">science</string>
+    <string name="category_sports">sports</string>
+    <string name="category_technology">technology</string>
+
+
 
     <string name="api_key">e21097ee5d1d4cc0ba09d9e64d739021</string>
 

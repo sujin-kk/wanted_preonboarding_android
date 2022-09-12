@@ -1,4 +1,4 @@
-package com.wanted.preob.newsapp.presentation.ui.topNews
+package com.wanted.preob.newsapp.presentation.ui.news
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,7 @@ import com.wanted.preob.newsapp.databinding.FragmentTopNewsBinding
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
 import com.wanted.preob.newsapp.presentation.ui.main.MainViewModel
+import com.wanted.preob.newsapp.presentation.ui.news.adapter.NewsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 

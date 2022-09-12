@@ -25,12 +25,20 @@ class MainViewModel @Inject constructor(
     val topNewsList: StateFlow<MutableList<News>>
         get() = _topNewsList
 
+    private val _categoryNewsList: MutableStateFlow<MutableList<News>> =
+        MutableStateFlow(mutableListOf())
+    val categoryNewsList: StateFlow<MutableList<News>>
+        get() = _categoryNewsList
+
     fun getNewsList(category: String?) {
         viewModelScope.launch {
             newsRepository.getNewsList(category = category)
                 .collect {
                     Timber.tag(TAG).e(it.toString())
-                    _topNewsList.value = it.toMutableList()
+                    if(category == null)
+                        _topNewsList.value = it.toMutableList()
+                    else
+                        _categoryNewsList.value = it.toMutableList()
                 }
         }
     }

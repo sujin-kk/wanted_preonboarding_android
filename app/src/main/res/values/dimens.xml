@@ -5,4 +5,7 @@
     <dimen name="image_radius_default">4dp</dimen>
     <dimen name="bottom_nav_height">72dp</dimen>
     <dimen name="news_item_border">0.1dp</dimen>
+    <dimen name="category_item_border">0.3dp</dimen>
+    <dimen name="category_radius_default">100dp</dimen>
+    <dimen name="item_category_size">90dp</dimen>
 </resources>

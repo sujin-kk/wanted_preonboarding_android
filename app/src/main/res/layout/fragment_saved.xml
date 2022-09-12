@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.SavedFragment">
+        tools:context=".presentation.ui.saved.SavedFragment">
 
         <include
             android:id="@+id/saved_header"

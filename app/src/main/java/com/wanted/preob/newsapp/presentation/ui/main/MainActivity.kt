@@ -1,4 +1,4 @@
-package com.wanted.preob.newsapp.presentation
+package com.wanted.preob.newsapp.presentation.ui.main
 
 import android.os.Bundle
 import androidx.navigation.NavController

@@ -15,13 +15,16 @@
 
     <!-- category -->
     <string name="category_title_text">Choose a category to\nstart reading</string>
-    <string name="category_business">business</string>
-    <string name="category_entertainment">entertainment</string>
-    <string name="category_health">health</string>
-    <string name="category_general">general</string>
-    <string name="category_science">science</string>
-    <string name="category_sports">sports</string>
-    <string name="category_technology">technology</string>
+
+    <string-array name="category_list">
+        <string name="category_business">business</string>
+        <string name="category_entertainment">entertainment</string>
+        <string name="category_health">health</string>
+        <string name="category_general">general</string>
+        <string name="category_science">science</string>
+        <string name="category_sports">sports</string>
+        <string name="category_technology">technology</string>
+    </string-array>
 
 
 

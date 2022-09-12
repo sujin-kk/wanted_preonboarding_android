@@ -3,6 +3,7 @@ package com.wanted.preob.newsapp.presentation.ui.topNews
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentTopNewsBinding
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
@@ -21,6 +22,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
         Timber.e(TAG)
         initAdapter()
         initListener()
+        bindingViewModel()
     }
 
     private fun initListener() {
@@ -33,8 +35,17 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
         binding.topNewsRv.adapter = topNewsListAdapter
     }
 
-    private fun goToDetailNews() {
+    private fun bindingViewModel() {
+        lifecycleScope.launchWhenCreated {
+            mainViewModel.topNewsList.collect {
+                Timber.tag(TAG).e(it.toString())
+                topNewsListAdapter.updateNewsList(it)
+            }
+        }
+    }
 
+    private fun goToDetailNews() {
+        Timber.tag(TAG).e("Detail Fragment 로 이동")
     }
 
     companion object {

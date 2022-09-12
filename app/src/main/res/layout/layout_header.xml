@@ -33,6 +33,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/H1"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
                     android:layout_gravity="left"
                     android:visibility="@{headerType == HeaderType.BASE ? View.VISIBLE : View.GONE}" />
 
@@ -56,6 +58,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/H1"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
                         android:layout_marginStart="@dimen/bg_margin_default" />
 
                 </LinearLayout>

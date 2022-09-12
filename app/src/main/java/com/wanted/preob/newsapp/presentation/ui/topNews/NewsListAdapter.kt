@@ -1,5 +1,6 @@
 package com.wanted.preob.newsapp.presentation.ui.topNews
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,12 @@ class NewsListAdapter(
 )
     : RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateNewsList(newsData: MutableList<News>) {
+        newsList.clear()
+        newsList.addAll(newsData)
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ItemNewsBinding.inflate(
             LayoutInflater.from(parent.context),

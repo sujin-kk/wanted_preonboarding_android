@@ -23,7 +23,6 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
         initListener()
     }
 
-
     private fun initListener() {
         binding.topNewsHeader.headerType = HeaderType.BASE
         binding.topNewsHeader.headerTitleTv.text = getString(R.string.app_name)

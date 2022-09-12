@@ -7,7 +7,7 @@ import com.wanted.preob.newsapp.databinding.ItemNewsBinding
 import com.wanted.preob.newsapp.domain.model.News
 
 class NewsListAdapter(
-    private val newsList: ArrayList<News>,
+    private val newsList: MutableList<News>,
     private val onClick: (News) -> Unit,
 )
     : RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {

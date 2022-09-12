@@ -7,7 +7,9 @@ import androidx.navigation.ui.setupWithNavController
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.ActivityMainBinding
 import com.wanted.preob.newsapp.presentation.base.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private lateinit var navHostFragment: NavHostFragment

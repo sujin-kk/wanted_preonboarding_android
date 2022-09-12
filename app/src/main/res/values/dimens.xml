@@ -2,4 +2,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="bg_margin_default">16dp</dimen>
+    <dimen name="image_radius_default">4dp</dimen>
+    <dimen name="bottom_nav_height">72dp</dimen>
+    <dimen name="news_item_border">0.1dp</dimen>
 </resources>

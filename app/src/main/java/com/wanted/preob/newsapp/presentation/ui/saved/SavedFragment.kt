@@ -1,4 +1,4 @@
-package com.wanted.preob.newsapp.presentation.ui
+package com.wanted.preob.newsapp.presentation.ui.saved
 
 import android.os.Bundle
 import android.view.View

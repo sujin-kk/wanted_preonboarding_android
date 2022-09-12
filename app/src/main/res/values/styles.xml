@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="H1">
+        <item name="fontWeight">700</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">29.05dp</item>
+    </style>
+
+    <style name="T1">
+        <item name="fontWeight">700</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">19.36dp</item>
+    </style>
+
+    <style name="T2">
+        <item name="fontWeight">700</item>
+        <item name="android:textSize">15sp</item>
+        <item name="lineHeight">18.15dp</item>
+    </style>
+
+    <style name="Sub1">
+        <item name="fontWeight">700</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">16.94dp</item>
+    </style>
+    <style name="Sub2">
+        <item name="fontWeight">700</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">14.52dp</item>
+    </style>
+</resources>

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wanted.preob.newsapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".NewsAppApplication"
         android:allowBackup="true"
@@ -12,7 +14,7 @@
         android:theme="@style/Theme.NewsApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

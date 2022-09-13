@@ -47,13 +47,12 @@ class DetailNewsFragment : BaseFragment<FragmentDetailNewsBinding>(R.layout.frag
         lifecycleScope.launchWhenStarted {
             detailNewsViewModel.detailNews.collect {
                 binding.news = it
+                Timber.tag(TAG).e("현재 뉴스 상태 $it")
             }
         }
     }
 
-
-
     companion object {
-        const val TAG = "DetailNewsFragment"
+        private const val TAG = "DetailNewsFragment"
     }
 }

@@ -33,6 +33,6 @@ class RemoteRemoteNewsRepositoryImpl @Inject constructor(
     }
 
     companion object {
-        private const val TAG = "NewsRepositoryImpl"
+        private const val TAG = "RemoteNewsRepositoryImpl"
     }
 }

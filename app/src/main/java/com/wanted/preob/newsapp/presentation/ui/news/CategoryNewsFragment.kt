@@ -50,7 +50,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
     private fun bindingViewModel() {
         lifecycleScope.launchWhenStarted {
             mainViewModel.categoryNewsList.collect {
-                Timber.tag(TopNewsFragment.TAG).e(it.toString())
+                Timber.tag(TAG).e(it.toString())
                 categoryNewsListAdapter.updateNewsList(it)
             }
         }
@@ -64,7 +64,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
     }
 
     companion object {
-        const val TAG = "CategoryNewsFragment"
+        private const val TAG = "CategoryNewsFragment"
     }
 
 }

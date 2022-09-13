@@ -10,6 +10,13 @@
         android:name="com.wanted.preob.newsapp.presentation.ui.news.TopNewsFragment"
         android:label="TopNewsFragment"
         tools:layout="@layout/fragment_top_news">
+        <action
+            android:id="@+id/action_news_to_detail"
+            app:destination="@id/detailNewsFragment">
+            <argument
+                android:name="news"
+                app:argType="com.wanted.preob.newsapp.domain.model.News" />
+        </action>
     </fragment>
 
     <fragment
@@ -22,6 +29,14 @@
             android:name="category"
             android:defaultValue=""
             app:argType="string" />
+
+        <action
+            android:id="@+id/action_category_news_to_detail"
+            app:destination="@id/detailNewsFragment">
+            <argument
+                android:name="news"
+                app:argType="com.wanted.preob.newsapp.domain.model.News" />
+        </action>
     </fragment>
 
     <fragment
@@ -44,6 +59,16 @@
         android:name="com.wanted.preob.newsapp.presentation.ui.saved.SavedFragment"
         android:label="SavedFragment"
         tools:layout="@layout/fragment_saved">
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailNewsFragment"
+        android:name="com.wanted.preob.newsapp.presentation.ui.detail.DetailNewsFragment"
+        android:label="DetailNewsFragment"
+        tools:layout="@layout/fragment_detail_news">
+        <argument
+            android:name="news"
+            app:argType="com.wanted.preob.newsapp.domain.model.News" />
     </fragment>
 
 </navigation>

@@ -43,7 +43,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:gravity="center"
                     android:orientation="horizontal"
                     android:visibility="@{headerType == HeaderType.BACK ? View.VISIBLE : View.GONE}">
 
@@ -51,12 +50,15 @@
                         android:id="@+id/header_back_iv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:src="@drawable/ic_back" />
 
                     <TextView
                         android:id="@+id/header_back_title_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:ellipsize="marquee"
                         style="@style/H1"
                         android:textStyle="bold"
                         android:textColor="@color/white"

@@ -8,4 +8,5 @@
     <dimen name="category_item_border">0.3dp</dimen>
     <dimen name="category_radius_default">100dp</dimen>
     <dimen name="item_category_size">90dp</dimen>
+    <dimen name="detail_news_height">218dp</dimen>
 </resources>

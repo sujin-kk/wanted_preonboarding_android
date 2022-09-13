@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentTopNewsBinding
+import com.wanted.preob.newsapp.domain.model.News
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
 import com.wanted.preob.newsapp.presentation.ui.main.MainViewModel
@@ -20,7 +22,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Timber.e(TAG)
+        mainViewModel.getNewsList(null)
         initAdapter()
         initListener()
         bindingViewModel()
@@ -32,12 +34,12 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
     }
 
     private fun initAdapter() {
-        topNewsListAdapter = NewsListAdapter(newsList = mainViewModel.topNewsList.value, onClick = { goToDetailNews() })
+        topNewsListAdapter = NewsListAdapter(newsList = mainViewModel.topNewsList.value, onClick = { goToDetailNews(it) })
         binding.topNewsRv.adapter = topNewsListAdapter
     }
 
     private fun bindingViewModel() {
-        lifecycleScope.launchWhenCreated {
+        lifecycleScope.launchWhenStarted {
             mainViewModel.topNewsList.collect {
                 Timber.tag(TAG).e(it.toString())
                 topNewsListAdapter.updateNewsList(it)
@@ -45,8 +47,11 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
         }
     }
 
-    private fun goToDetailNews() {
-        Timber.tag(TAG).e("Detail Fragment 로 이동")
+    private fun goToDetailNews(news: News) {
+        Timber.tag(TAG).e("Top News -> Detail")
+        findNavController().navigate(
+            TopNewsFragmentDirections.actionNewsToDetail(news = news)
+        )
     }
 
     companion object {

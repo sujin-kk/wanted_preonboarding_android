@@ -5,7 +5,7 @@ import com.wanted.preob.newsapp.domain.model.News
 import java.text.SimpleDateFormat
 import java.util.*
 
-object Mapper {
+object RemoteMapper {
     fun mapToDomainNews(article: Article): News {
         with(article) {
             return News(

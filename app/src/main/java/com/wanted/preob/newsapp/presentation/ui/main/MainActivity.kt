@@ -24,8 +24,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     private fun initBottomNavigation() {
         navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
         navController = navHostFragment.navController
-       // binding.navBottomView.setupWithNavController(navController)
+
         with(binding.navBottomView) {
             setupWithNavController(navController)
             setOnItemSelectedListener {

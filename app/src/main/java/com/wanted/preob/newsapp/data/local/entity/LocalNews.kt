@@ -1,19 +1,18 @@
-package com.wanted.preob.newsapp.domain.model
+package com.wanted.preob.newsapp.data.local.entity
 
-import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.parcelize.Parcelize
 
-@Entity
-@Parcelize
-data class News(
-    @PrimaryKey
-    val title: String = "",
+@Entity(tableName = "local_news")
+data class LocalNews(
+    val title: String = "No Title",
     val author: String? = "",
     val content: String? = "",
     val url: String? = "",
     val imgUrl: String? = "",
     val time: String? = "",
     val isSaved: Boolean = false
-): Parcelable
+) {
+    @PrimaryKey(autoGenerate = true)
+    val nid: Int = 0
+}

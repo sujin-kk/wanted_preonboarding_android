@@ -1,7 +1,7 @@
 package com.wanted.preob.newsapp.data.remote.repository
 
 import com.wanted.preob.newsapp.data.api.NewsApi
-import com.wanted.preob.newsapp.data.mapper.Mapper
+import com.wanted.preob.newsapp.data.mapper.RemoteMapper
 import com.wanted.preob.newsapp.domain.model.News
 import com.wanted.preob.newsapp.domain.repository.remote.RemoteNewsRepository
 import kotlinx.coroutines.flow.Flow
@@ -23,7 +23,7 @@ class RemoteRemoteNewsRepositoryImpl @Inject constructor(
                 val articles = it.articles
                 emit(
                     articles!!.map { article ->
-                    Mapper.mapToDomainNews(article = article)
+                    RemoteMapper.mapToDomainNews(article = article)
                     }
                 )
             }

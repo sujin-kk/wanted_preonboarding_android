@@ -2,32 +2,31 @@ package com.wanted.preob.newsapp.presentation.ui.detail
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentDetailNewsBinding
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
-import com.wanted.preob.newsapp.presentation.ui.main.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
-
+@AndroidEntryPoint
 class DetailNewsFragment : BaseFragment<FragmentDetailNewsBinding>(R.layout.fragment_detail_news) {
     private val args by navArgs<DetailNewsFragmentArgs>()
-    private val mainViewModel: MainViewModel by activityViewModels()
+    private val detailNewsViewModel: DetailNewsViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Timber.tag(TAG).e("받은 뉴스 데이터 : ${args.news}")
-        initView()
+        bindingViewModel()
         initListener()
     }
 
-    private fun initView() {
-        binding.news = args.news
-    }
     private fun initListener() {
+
         binding.detailNewsHeader.apply {
             this.headerType = HeaderType.BACK
             this.headerBackTitleTv.text = args.news.title
@@ -35,7 +34,24 @@ class DetailNewsFragment : BaseFragment<FragmentDetailNewsBinding>(R.layout.frag
                 findNavController().navigateUp()
             }
         }
+
+        binding.detailNewsSaveBtn.setOnClickListener {
+            detailNewsViewModel.changeSaveState()
+        }
     }
+
+    private fun bindingViewModel() {
+        detailNewsViewModel.setDetailNews(news = args.news)
+        detailNewsViewModel.checkSaveState(news = args.news)
+
+        lifecycleScope.launchWhenStarted {
+            detailNewsViewModel.detailNews.collect {
+                binding.news = it
+            }
+        }
+    }
+
+
 
     companion object {
         const val TAG = "DetailNewsFragment"

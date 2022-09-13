@@ -5,8 +5,10 @@ import android.view.View
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentSavedBinding
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

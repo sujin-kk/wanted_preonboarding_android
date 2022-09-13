@@ -16,16 +16,25 @@ class MainViewModel @Inject constructor(
     private val remoteNewsRepository: RemoteNewsRepository
 ): BaseViewModel() {
 
+    // saved
+    private val _savedNewsList: MutableStateFlow<MutableList<News>> =
+        MutableStateFlow(mutableListOf())
+    val savedNewsList: StateFlow<MutableList<News>>
+        get() = _savedNewsList
+
+    // top news
     private val _topNewsList: MutableStateFlow<MutableList<News>> =
         MutableStateFlow(mutableListOf())
     val topNewsList: StateFlow<MutableList<News>>
         get() = _topNewsList
 
+    // category news
     private val _categoryNewsList: MutableStateFlow<MutableList<News>> =
         MutableStateFlow(mutableListOf())
     val categoryNewsList: StateFlow<MutableList<News>>
         get() = _categoryNewsList
 
+    // top news, category news
     fun getNewsList(category: String?) {
         viewModelScope.launch {
             remoteNewsRepository.getNewsList(category = category)

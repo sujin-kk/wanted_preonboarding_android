@@ -1,6 +1,6 @@
 package com.wanted.preob.newsapp.data.mapper
 
-import com.wanted.preob.newsapp.data.model.response.Article
+import com.wanted.preob.newsapp.data.remote.model.Article
 import com.wanted.preob.newsapp.domain.model.News
 import java.text.SimpleDateFormat
 import java.util.*

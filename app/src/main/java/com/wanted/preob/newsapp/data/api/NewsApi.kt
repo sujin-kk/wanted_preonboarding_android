@@ -1,6 +1,6 @@
 package com.wanted.preob.newsapp.data.api
 
-import com.wanted.preob.newsapp.data.model.response.NewsResponse
+import com.wanted.preob.newsapp.data.remote.model.NewsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

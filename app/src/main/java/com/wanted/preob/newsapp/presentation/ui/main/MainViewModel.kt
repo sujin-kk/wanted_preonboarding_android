@@ -2,7 +2,7 @@ package com.wanted.preob.newsapp.presentation.ui.main
 
 import androidx.lifecycle.viewModelScope
 import com.wanted.preob.newsapp.domain.model.News
-import com.wanted.preob.newsapp.domain.repository.remote.news.NewsRepository
+import com.wanted.preob.newsapp.domain.repository.remote.RemoteNewsRepository
 import com.wanted.preob.newsapp.presentation.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val newsRepository: NewsRepository
+    private val remoteNewsRepository: RemoteNewsRepository
 ): BaseViewModel() {
 
     private val _topNewsList: MutableStateFlow<MutableList<News>> =
@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor(
 
     fun getNewsList(category: String?) {
         viewModelScope.launch {
-            newsRepository.getNewsList(category = category)
+            remoteNewsRepository.getNewsList(category = category)
                 .collect {
                     Timber.tag(TAG).e(it.toString())
                     if(category == null)

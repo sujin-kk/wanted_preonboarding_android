@@ -17,7 +17,7 @@
     <string name="category_title_text">Choose a category to\nstart reading</string>
 
     <!-- saved -->
-    <string name="saved_empty_news_text">There are no saved news.\nSave and check the news.</string>
+    <string name="saved_empty_news_text">There are no saved news</string>
 
     <string name="api_key">e21097ee5d1d4cc0ba09d9e64d739021</string>
 </resources>

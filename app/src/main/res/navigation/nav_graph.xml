@@ -15,7 +15,7 @@
             app:destination="@id/detailNewsFragment">
             <argument
                 android:name="news"
-                app:argType="com.wanted.preob.domain.model.News" />
+                app:argType="com.wanted.preob.newsapp.domain.model.News" />
         </action>
     </fragment>
 
@@ -35,7 +35,7 @@
             app:destination="@id/detailNewsFragment">
             <argument
                 android:name="news"
-                app:argType="com.wanted.preob.domain.model.News" />
+                app:argType="com.wanted.preob.newsapp.domain.model.News" />
         </action>
     </fragment>
 
@@ -68,7 +68,7 @@
         tools:layout="@layout/fragment_detail_news">
         <argument
             android:name="news"
-            app:argType="com.wanted.preob.domain.model.News" />
+            app:argType="com.wanted.preob.newsapp.domain.model.News" />
     </fragment>
 
 </navigation>

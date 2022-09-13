@@ -8,6 +8,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentCategoryNewsBinding
+import com.wanted.preob.newsapp.domain.model.News
+import com.wanted.preob.newsapp.domain.model.enums.Category
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
 import com.wanted.preob.newsapp.presentation.ui.main.MainViewModel
@@ -40,7 +42,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
     }
 
     private fun initAdapter() {
-        categoryNewsListAdapter = NewsListAdapter(newsList = mainViewModel.categoryNewsList.value, onClick = { goToDetailNews() })
+        categoryNewsListAdapter = NewsListAdapter(newsList = mainViewModel.categoryNewsList.value, onClick = { goToDetailNews(it) })
         binding.categoryNewsRv.adapter = categoryNewsListAdapter
     }
 
@@ -53,8 +55,11 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
         }
     }
 
-    private fun goToDetailNews() {
-        Timber.tag(TAG).e("Detail Fragment 로 이동")
+    private fun goToDetailNews(news: News) {
+        Timber.tag(TAG).e("Category News -> Detail")
+        findNavController().navigate(
+            CategoryNewsFragmentDirections.actionCategoryNewsToDetail(news = news)
+        )
     }
 
     companion object {

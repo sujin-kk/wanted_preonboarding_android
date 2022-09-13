@@ -71,7 +71,7 @@
             android:id="@+id/item_news_time_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            bindTimeText="@{news.time}"
+            android:text="@{news.time}"
             style="@style/Sub1"
             android:textStyle="bold"
             android:textColor="@color/gray"

@@ -20,29 +20,6 @@ fun ImageView.bindImage(imgUrl: String?) {
     }
 }
 
-@BindingAdapter("bindTimeText")
-fun TextView.bindTimeText(publishedAt: String) {
-    val sf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)
-    val now = sf.format(Date(System.currentTimeMillis()))
-
-    val nowDate = sf.parse(now)!!
-    val beforeDate = sf.parse(publishedAt)!!
-
-    val diff = nowDate.time - beforeDate.time
-    val diffSec = diff / 1000
-    val diffMin = diff / (60 * 1000)
-    val diffHour = diff / (60 * 60 * 1000)
-    val diffDay = diff / (60 * 60 * 24 * 1000)
-
-
-    text = when {
-        diffDay > 0 -> "$diffDay days ago"
-        diffHour > 0 -> "$diffHour hours ago"
-        diffMin > 0 -> "$diffMin minutes ago"
-        else -> "$diffSec seconds ago"
-    }
-}
-
 @BindingAdapter("bindCategoryImage")
 fun ImageView.bindCategoryImage(resId: Int) {
     Glide.with(this)

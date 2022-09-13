@@ -1,8 +1,9 @@
 package com.wanted.preob.newsapp.domain.model
 
-import kotlinx.serialization.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-@Serializable
+@Parcelize
 data class News(
     val title: String = "No Title",
     val author: String? = "",
@@ -11,4 +12,4 @@ data class News(
     val imgUrl: String? = "",
     val time: String? = "",
     val isSaved: Boolean = false
-)
+): Parcelable

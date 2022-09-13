@@ -59,6 +59,15 @@
         android:name="com.wanted.preob.newsapp.presentation.ui.saved.SavedFragment"
         android:label="SavedFragment"
         tools:layout="@layout/fragment_saved">
+
+        <action
+            android:id="@+id/action_saved_news_to_detail"
+            app:destination="@id/detailNewsFragment">
+            <argument
+                android:name="news"
+                app:argType="com.wanted.preob.newsapp.domain.model.News" />
+        </action>
+
     </fragment>
 
     <fragment

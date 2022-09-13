@@ -1,4 +1,4 @@
-package com.wanted.preob.newsapp.data.model.response
+package com.wanted.preob.newsapp.data.remote.model
 
 import kotlinx.serialization.Serializable
 

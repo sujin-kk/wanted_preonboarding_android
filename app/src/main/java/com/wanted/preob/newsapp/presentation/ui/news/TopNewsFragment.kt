@@ -55,6 +55,6 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
     }
 
     companion object {
-        const val TAG = "TopNewsFragment"
+        private const val TAG = "TopNewsFragment"
     }
 }

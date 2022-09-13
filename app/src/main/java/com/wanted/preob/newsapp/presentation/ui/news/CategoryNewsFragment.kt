@@ -9,13 +9,14 @@ import androidx.navigation.fragment.navArgs
 import com.wanted.preob.newsapp.R
 import com.wanted.preob.newsapp.databinding.FragmentCategoryNewsBinding
 import com.wanted.preob.newsapp.domain.model.News
-import com.wanted.preob.newsapp.domain.model.enums.Category
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
 import com.wanted.preob.newsapp.presentation.ui.main.MainViewModel
 import com.wanted.preob.newsapp.presentation.ui.news.adapter.NewsListAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
+@AndroidEntryPoint
 class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.fragment_category_news) {
     private lateinit var categoryNewsListAdapter: NewsListAdapter
     private val args by navArgs<CategoryNewsFragmentArgs>()
@@ -49,7 +50,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
     private fun bindingViewModel() {
         lifecycleScope.launchWhenStarted {
             mainViewModel.categoryNewsList.collect {
-                Timber.tag(TopNewsFragment.TAG).e(it.toString())
+                Timber.tag(TAG).e(it.toString())
                 categoryNewsListAdapter.updateNewsList(it)
             }
         }
@@ -63,7 +64,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
     }
 
     companion object {
-        const val TAG = "CategoryNewsFragment"
+        private const val TAG = "CategoryNewsFragment"
     }
 
 }

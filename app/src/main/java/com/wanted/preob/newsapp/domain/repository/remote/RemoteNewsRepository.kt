@@ -1,8 +1,8 @@
-package com.wanted.preob.newsapp.domain.repository.remote.news
+package com.wanted.preob.newsapp.domain.repository.remote
 
 import com.wanted.preob.newsapp.domain.model.News
 import kotlinx.coroutines.flow.Flow
 
-interface NewsRepository {
+interface RemoteNewsRepository {
     suspend fun getNewsList(category: String?): Flow<List<News>>
 }

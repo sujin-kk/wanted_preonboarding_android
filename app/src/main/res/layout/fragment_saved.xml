@@ -16,12 +16,15 @@
             android:id="@+id/saved_header"
             layout="@layout/layout_header" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="메롱"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/saved_news_rv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="@dimen/bg_margin_default"
+            android:layout_marginHorizontal="@dimen/bg_margin_default"
             app:layout_constraintTop_toBottomOf="@id/saved_header"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/item_news"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

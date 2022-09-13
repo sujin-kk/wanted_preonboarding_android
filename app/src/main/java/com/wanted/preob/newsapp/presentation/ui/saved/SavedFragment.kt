@@ -42,6 +42,7 @@ class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved
         lifecycleScope.launchWhenStarted {
             mainViewModel.savedNewsList.collect {
                 Timber.tag(TAG).e(it.toString())
+                binding.isEmptyNews = it.isEmpty()
                 savedNewsListAdapter.updateNewsList(it)
             }
         }

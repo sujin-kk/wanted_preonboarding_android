@@ -65,4 +65,5 @@
 ## ToDo
 - Jetpack Paging3를 활용한 Infinity Scroll 구현
 - 네트워크 연결 여부 확인
-- UI State 확인 및 처리
+- Entity / Domain Model 분리
+- UI State 처리

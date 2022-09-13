@@ -4,7 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View" />
 
+        <variable
+            name="isEmptyNews"
+            type="boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,11 +20,26 @@
             android:id="@+id/saved_header"
             layout="@layout/layout_header" />
 
+        <TextView
+            android:id="@+id/saved_empty_news_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{isEmptyNews ? View.VISIBLE : View.GONE}"
+            android:text="@string/saved_empty_news_text"
+            android:textColor="@color/title_color"
+            style="sub1"
+            android:layout_marginHorizontal="@dimen/bg_margin_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/saved_news_rv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:visibility="@{isEmptyNews ? View.GONE : View.VISIBLE}"
             android:layout_marginTop="@dimen/bg_margin_default"
             android:layout_marginHorizontal="@dimen/bg_margin_default"
             app:layout_constraintTop_toBottomOf="@id/saved_header"

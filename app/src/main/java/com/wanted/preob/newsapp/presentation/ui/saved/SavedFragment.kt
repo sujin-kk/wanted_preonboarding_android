@@ -11,13 +11,12 @@ import com.wanted.preob.newsapp.domain.model.News
 import com.wanted.preob.newsapp.domain.model.enums.HeaderType
 import com.wanted.preob.newsapp.presentation.base.BaseFragment
 import com.wanted.preob.newsapp.presentation.ui.main.MainViewModel
-import com.wanted.preob.newsapp.presentation.ui.news.adapter.NewsListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
 class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved) {
-    private lateinit var savedNewsListAdapter: NewsListAdapter
+    private lateinit var savedNewsAdapter: SavedNewsAdapter
     private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,8 +33,8 @@ class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved
     }
 
     private fun initListener() {
-        savedNewsListAdapter = NewsListAdapter(newsList = mainViewModel.savedNewsList.value, onClick = { goToDetailNews(it) })
-        binding.savedNewsRv.adapter = savedNewsListAdapter
+        savedNewsAdapter = SavedNewsAdapter(newsList = mainViewModel.savedNewsList.value, onClick = { goToDetailNews(it) })
+        binding.savedNewsRv.adapter = savedNewsAdapter
     }
 
     private fun bindingViewModel() {
@@ -43,7 +42,7 @@ class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved
             mainViewModel.savedNewsList.collect {
                 Timber.tag(TAG).e(it.toString())
                 binding.isEmptyNews = it.isEmpty()
-                savedNewsListAdapter.updateNewsList(it)
+                savedNewsAdapter.updateNewsList(it)
             }
         }
     }

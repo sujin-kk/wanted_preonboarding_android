@@ -43,7 +43,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
     }
 
     private fun initAdapter() {
-        categoryNewsListAdapter = NewsListAdapter(newsList = mainViewModel.categoryNewsList.value, onClick = { goToDetailNews(it) })
+        categoryNewsListAdapter = NewsListAdapter(onClick = { goToDetailNews(it) })
         binding.categoryNewsRv.adapter = categoryNewsListAdapter
     }
 
@@ -51,7 +51,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
         lifecycleScope.launchWhenStarted {
             mainViewModel.categoryNewsList.collect {
                 Timber.tag(TAG).e(it.toString())
-                categoryNewsListAdapter.updateNewsList(it)
+                categoryNewsListAdapter.submitData(it)
             }
         }
     }

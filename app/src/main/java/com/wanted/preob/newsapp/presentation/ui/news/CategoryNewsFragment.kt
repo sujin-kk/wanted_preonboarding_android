@@ -50,7 +50,7 @@ class CategoryNewsFragment : BaseFragment<FragmentCategoryNewsBinding>(R.layout.
     private fun bindingViewModel() {
         lifecycleScope.launchWhenStarted {
             mainViewModel.categoryNewsList.collect {
-                Timber.tag(TAG).e(it.toString())
+                // Timber.tag(TAG).e(it.toString())
                 categoryNewsListAdapter.submitData(it)
             }
         }

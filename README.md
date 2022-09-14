@@ -33,6 +33,7 @@
   - Coroutine
   - Data Binding
 - Naivgation Conponponent
+- PAGING
 - HILT
 - ROOM
 - OKHTTP
@@ -51,6 +52,7 @@
 │   ├── api
 │   ├── local
 │   ├── mapper
+│   ├── paging
 │   └── remote
 ├── di
 ├── domain
@@ -63,7 +65,5 @@
 ```
 
 ## ToDo
-- Jetpack Paging3를 활용한 Infinity Scroll 구현
 - 네트워크 연결 여부 확인
 - Entity / Domain Model 분리
-- List Adapter 활용

@@ -16,7 +16,7 @@ import timber.log.Timber
 
 @AndroidEntryPoint
 class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved) {
-    private lateinit var savedNewsAdapter: SavedNewsAdapter
+    private lateinit var savedListAdapter: SavedListAdapter
     private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,13 +28,13 @@ class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved
     }
 
     private fun initAdapter() {
-        binding.savedHeader.headerType = HeaderType.BASE
-        binding.savedHeader.headerTitleTv.text = getString(R.string.saved_header_title)
+        savedListAdapter = SavedListAdapter(onClick = { goToDetailNews(it) })
+        binding.savedNewsRv.adapter = savedListAdapter
     }
 
     private fun initListener() {
-        savedNewsAdapter = SavedNewsAdapter(newsList = mainViewModel.savedNewsList.value, onClick = { goToDetailNews(it) })
-        binding.savedNewsRv.adapter = savedNewsAdapter
+        binding.savedHeader.headerType = HeaderType.BASE
+        binding.savedHeader.headerTitleTv.text = getString(R.string.saved_header_title)
     }
 
     private fun bindingViewModel() {
@@ -42,7 +42,7 @@ class SavedFragment : BaseFragment<FragmentSavedBinding>(R.layout.fragment_saved
             mainViewModel.savedNewsList.collect {
                 Timber.tag(TAG).e(it.toString())
                 binding.isEmptyNews = it.isEmpty()
-                savedNewsAdapter.updateNewsList(it)
+                savedListAdapter.submitList(it)
             }
         }
     }

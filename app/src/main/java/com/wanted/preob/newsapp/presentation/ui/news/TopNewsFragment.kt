@@ -41,7 +41,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
     private fun bindingViewModel() {
         lifecycleScope.launchWhenStarted {
             mainViewModel.topNewsList.collect {
-                Timber.tag(TAG).e(it.toString())
+                // Timber.tag(TAG).e(it.toString())
                 topNewsListAdapter.submitData(it)
             }
         }

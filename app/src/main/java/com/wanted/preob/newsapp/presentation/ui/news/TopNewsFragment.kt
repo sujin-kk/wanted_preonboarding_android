@@ -34,7 +34,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
     }
 
     private fun initAdapter() {
-        topNewsListAdapter = NewsListAdapter(newsList = mainViewModel.topNewsList.value, onClick = { goToDetailNews(it) })
+        topNewsListAdapter = NewsListAdapter(onClick = { goToDetailNews(it) })
         binding.topNewsRv.adapter = topNewsListAdapter
     }
 
@@ -42,7 +42,7 @@ class TopNewsFragment : BaseFragment<FragmentTopNewsBinding>(R.layout.fragment_t
         lifecycleScope.launchWhenStarted {
             mainViewModel.topNewsList.collect {
                 Timber.tag(TAG).e(it.toString())
-                topNewsListAdapter.updateNewsList(it)
+                topNewsListAdapter.submitData(it)
             }
         }
     }

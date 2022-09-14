@@ -1,17 +1,24 @@
-package com.wanted.preob.newsapp.presentation.ui.news.adapter
+package com.wanted.preob.newsapp.presentation.ui.saved
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.wanted.preob.newsapp.databinding.ItemNewsBinding
 import com.wanted.preob.newsapp.domain.model.News
 
-class NewsListAdapter(
+class SavedNewsAdapter(
+    private val newsList: MutableList<News>,
     private val onClick: (News) -> Unit,
 )
-    : PagingDataAdapter<News, NewsListAdapter.ViewHolder>(diffCallback) {
+    : RecyclerView.Adapter<SavedNewsAdapter.ViewHolder>()  {
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateNewsList(newsData: MutableList<News>) {
+        newsList.clear()
+        newsList.addAll(newsData)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ItemNewsBinding.inflate(
@@ -22,10 +29,10 @@ class NewsListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        getItem(position)?.let {
-            holder.bind(news = it)
-        }
+       holder.bind(newsList[position])
     }
+
+    override fun getItemCount(): Int = newsList.size
 
     inner class ViewHolder(private val binding: ItemNewsBinding)
         :RecyclerView.ViewHolder(binding.root) {
@@ -36,16 +43,6 @@ class NewsListAdapter(
                     onClick.invoke(news)
                 }
             }
-        }
-    }
-
-    companion object {
-        private val diffCallback = object : DiffUtil.ItemCallback<News>() {
-            override fun areItemsTheSame(oldItem: News, newItem: News): Boolean =
-                oldItem.title == newItem.title
-
-            override fun areContentsTheSame(oldItem: News, newItem: News): Boolean =
-                oldItem == newItem
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.wanted.preob.newsapp.presentation.ui.main
 
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.wanted.preob.newsapp.domain.model.News
 import com.wanted.preob.newsapp.domain.repository.local.LocalNewsRepository
 import com.wanted.preob.newsapp.domain.repository.remote.RemoteNewsRepository
@@ -20,15 +22,15 @@ class MainViewModel @Inject constructor(
 ): BaseViewModel() {
 
     // top news
-    private val _topNewsList: MutableStateFlow<MutableList<News>> =
-        MutableStateFlow(mutableListOf())
-    val topNewsList: StateFlow<MutableList<News>>
+    private val _topNewsList: MutableStateFlow<PagingData<News>> =
+        MutableStateFlow(PagingData.empty())
+    val topNewsList: StateFlow<PagingData<News>>
         get() = _topNewsList
 
     // category news
-    private val _categoryNewsList: MutableStateFlow<MutableList<News>> =
-        MutableStateFlow(mutableListOf())
-    val categoryNewsList: StateFlow<MutableList<News>>
+    private val _categoryNewsList: MutableStateFlow<PagingData<News>> =
+        MutableStateFlow(PagingData.empty())
+    val categoryNewsList: StateFlow<PagingData<News>>
         get() = _categoryNewsList
 
     // saved
@@ -41,12 +43,13 @@ class MainViewModel @Inject constructor(
     fun getNewsList(category: String?) {
         viewModelScope.launch {
             remoteNewsRepository.getNewsList(category = category)
+                .cachedIn(viewModelScope)
                 .collect {
                     Timber.tag(TAG).e(it.toString())
                     if(category == null)
-                        _topNewsList.value = it.toMutableList()
+                        _topNewsList.value = it
                     else
-                        _categoryNewsList.value = it.toMutableList()
+                        _categoryNewsList.value = it
                 }
         }
     }

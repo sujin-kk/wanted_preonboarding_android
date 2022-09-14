@@ -3,22 +3,16 @@ package com.wanted.preob.newsapp.presentation.ui.saved
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.wanted.preob.newsapp.databinding.ItemNewsBinding
 import com.wanted.preob.newsapp.domain.model.News
 
-class SavedNewsAdapter(
-    private val newsList: MutableList<News>,
+class SavedListAdapter(
     private val onClick: (News) -> Unit,
 )
-    : RecyclerView.Adapter<SavedNewsAdapter.ViewHolder>()  {
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun updateNewsList(newsData: MutableList<News>) {
-        newsList.clear()
-        newsList.addAll(newsData)
-        notifyDataSetChanged()
-    }
+    : ListAdapter<News, SavedListAdapter.ViewHolder>(diffCallback)  {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ItemNewsBinding.inflate(
@@ -29,10 +23,10 @@ class SavedNewsAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.bind(newsList[position])
+        getItem(position)?.let {
+            holder.bind(news = it)
+        }
     }
-
-    override fun getItemCount(): Int = newsList.size
 
     inner class ViewHolder(private val binding: ItemNewsBinding)
         :RecyclerView.ViewHolder(binding.root) {
@@ -43,6 +37,16 @@ class SavedNewsAdapter(
                     onClick.invoke(news)
                 }
             }
+        }
+    }
+
+    companion object {
+        private val diffCallback = object : DiffUtil.ItemCallback<News>() {
+            override fun areItemsTheSame(oldItem: News, newItem: News): Boolean =
+                oldItem.title == newItem.title
+
+            override fun areContentsTheSame(oldItem: News, newItem: News): Boolean =
+                oldItem == newItem
         }
     }
 }

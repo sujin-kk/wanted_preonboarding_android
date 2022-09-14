@@ -18,29 +18,16 @@ import javax.inject.Singleton
 class RemoteRemoteNewsRepositoryImpl @Inject constructor(
     private val newsApi: NewsApi
 ) : RemoteNewsRepository {
-    override suspend fun getNewsList(category: String?): Flow<PagingData<News>> = flow {
-        kotlin.runCatching {
-            newsApi.getNews(category = category)
-        }
-            .onSuccess {
-                Timber.tag(TAG).e(it.toString())
-                // val articles = it.articles
-                Pager(PagingConfig(PAGE_SIZE)) {
-                    NewsPagingSource(newsApi = newsApi, category = category)
-                }
-//                emit(
-////                    articles!!.map { article ->
-////                    RemoteMapper.mapToDomainNews(article = article)
-////                    }
-//                )
-            }
-            .onFailure {
-                Timber.e(it)
-            }
+
+    override suspend fun getNewsList(category: String?): Flow<PagingData<News>> {
+        return Pager(PagingConfig(PAGE_SIZE)) {
+                NewsPagingSource(newsApi = newsApi, category = category)
+        }.flow
     }
 
     companion object {
         private const val TAG = "RemoteNewsRepositoryImpl"
         private const val PAGE_SIZE = 20
     }
+
 }

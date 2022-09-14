@@ -2,6 +2,7 @@
 
 ## OverView
 > 원티드 프리온보딩 안드로이드 사전과제
+
 > 뉴스 앱 서비스
 
 <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=Android&logoColor=white"> <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=Kotlin&logoColor=white">
@@ -12,7 +13,7 @@
 
 ## About
 
-**Features**
+✨ **Features**
 
 - 1. 최신 뉴스 리스트 조회
 - 2. 카테고리 선택
@@ -23,7 +24,7 @@
 
 
 
-**Technology Stack**
+🛠 **Technology Stack**
 - Tools : Android Studio Bublebee
 - Language : Kotlin
 - Architecture Pattern : MVVM Pattern
@@ -44,24 +45,37 @@
 - TIMBER 
 
 
-**Foldering**
+🔖 **Foldering**
 ```
-🔖
 .
 ├── data
 │   ├── api
 │   ├── local
+│   │   ├── dao
+│   │   ├── database
+│   │   └── repository
 │   ├── mapper
 │   ├── paging
 │   └── remote
+│       ├── model
+│       └── repository
 ├── di
 ├── domain
 │   ├── model
+│   │   └── enums
 │   └── repository
+│       ├── local
+│       └── remote
 ├── presentation
 │   ├── base
 │   └── ui
+│       ├── category
+│       ├── detail
+│       ├── main
+│       ├── news
+│       └── saved
 └── util
+
 ```
 
 ## ToDo
